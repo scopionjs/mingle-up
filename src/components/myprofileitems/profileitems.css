@@ -1,0 +1,483 @@
+:root{
+    --nuetral:rgb(205,79,79);
+} 
+*{
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    
+  }
+.myprofile-second-bar div{
+    display:flex ;
+    flex-direction: column;
+    gap: 15px;
+}
+/* first item */
+.FirstItem{
+width: 90%;
+height: 400px;
+margin-inline: 5%;
+margin-top: 20px;
+box-shadow: -4px 4px 10px -5px rgba(0,0,0,0.69);
+    -webkit-box-shadow: -4px 4px 10px -5px rgba(0,0,0,0.69);
+    -moz-box-shadow: -4px 4px 10px -5px rgba(0,0,0,0.69);
+    border-radius: 20px;
+    background-color: white;
+    position: relative;
+}
+.FirstItem-dark{
+    background-color: #202124;
+}
+.FirstItem .item1{
+background-color: #702B2B;
+height: 180px;
+}
+.FirstItem .item1 .profile-wrapper{
+    width:100%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50px;
+}
+.FirstItem .item1 .profile-wrapper .profile-pic-wrapper{
+    width: 200px;
+    height: 130px;
+    position: relative;
+}
+.FirstItem .item1 .profile-wrapper .profile-pic-wrapper img{
+    width: 130px;
+    height: 130px;
+    margin-left: 36px;
+    border-radius: 50%;
+    border: 4px var(--nuetral) solid;
+}
+.FirstItem .item1 .profile-wrapper .profile-pic-wrapper label{
+    position: absolute;
+    left: 122px;
+    top: 108px;
+    color: rgb(112, 43, 43);
+    cursor: pointer; 
+}
+.FirstItem-dark .item1 .profile-wrapper .profile-pic-wrapper label{
+    color: rgb(193, 9, 9);
+}
+.FirstItem .item1 .profile-wrapper .profile-pic-wrapper input{
+    display: none;
+}
+.FirstItem .item1 .profile-wrapper p{
+color: rgb(38, 37, 37);
+font-family: sans-serif;
+font-weight: 900;
+text-transform: capitalize;
+
+}
+.FirstItem-dark .item1 .profile-wrapper p{
+    color: rgb(196, 195, 195);
+}
+.FirstItem .item2{
+
+    height:calc( 400px - 180px ) ;
+    background: transparent;
+    display: flex;
+    flex-direction: row;
+}
+.FirstItem .item2 .detail1{
+    background: transparent;
+flex: 1;
+margin-top: 50px;
+display: flex;
+flex-direction: column;
+justify-content:end;
+margin-bottom: 15px;
+margin-left: 15px;
+}
+.FirstItem .item2 .detail1 p{
+    font-weight: 600;
+    font-size: 14px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.FirstItem-dark .item2 .detail1 p{
+    color: rgb(231, 225, 225);
+}
+
+.FirstItem .item2 .detail1 p:nth-last-child(3)::before{
+    content: 'gender: ';
+font-family: sans-serif;
+text-transform: capitalize;
+font-weight: 600;
+color: rgb(47, 45, 45);
+font-size: 15px;
+}
+.FirstItem .item2 .detail1 p:nth-last-child(2)::before{
+    content: 'interested in: ';
+font-family: sans-serif;
+text-transform: capitalize;
+font-weight: 600;
+color: rgb(47, 45, 45);
+font-size: 15px;
+}
+.FirstItem .item2 .detail1 p:nth-last-child(1)::before{
+    content: 'hobbies: ';
+font-family: sans-serif;
+text-transform: capitalize;
+font-weight: 600;
+color: rgb(47, 45, 45);
+font-size: 15px;
+}
+.FirstItem-dark .item2 .detail1 p:nth-last-child(3)::before{
+    color: rgb(183, 179, 179);
+}
+.FirstItem-dark .item2 .detail1 p:nth-last-child(2)::before{
+    color: rgb(183, 179, 179);
+}
+.FirstItem-dark .item2 .detail1 p:nth-last-child(1)::before{
+    color: rgb(183, 179, 179);
+}
+.FirstItem .item2 .detail2{
+    background: transparent;
+flex: 1;
+margin-top: 50px;
+display: flex;
+flex-direction: column;
+justify-content:end;
+align-items: flex-end;
+margin-bottom: 15px;
+margin-left: 15px;
+margin-right: 10%;
+}
+.FirstItem-dark .item2 .detail2 p{
+    color: rgb(231, 225, 225);
+}
+.FirstItem .item2 .detail2 p{
+    white-space: nowrap;
+    word-wrap:nowrap ;
+    font-weight: 600;
+    font-size: 14px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.FirstItem .item2 .detail2 p:nth-last-child(3)::before{
+    content: 'location: ';
+font-family: sans-serif;
+text-transform: capitalize;
+font-weight: 600;
+color: rgb(47, 45, 45);
+font-size: 15px;
+}
+.FirstItem .item2 .detail2 p:nth-last-child(2)::before{
+    content: 'looking for: ';
+font-family: sans-serif;
+text-transform: capitalize;
+font-weight: 600;
+color: rgb(47, 45, 45);
+font-size: 15px;
+}
+.FirstItem .item2 .detail2 p:nth-last-child(1)::before{
+    content: 'age: ';
+font-family: sans-serif;
+text-transform: capitalize;
+font-weight: 600;
+color: rgb(47, 45, 45);
+font-size: 15px;
+}
+.FirstItem-dark .item2 .detail2 p:nth-last-child(3)::before{
+    color: rgb(183, 179, 179);
+}
+.FirstItem-dark .item2 .detail2 p:nth-last-child(2)::before{
+    color: rgb(183, 179, 179);
+}
+.FirstItem-dark .item2 .detail2 p:nth-last-child(1)::before{
+    color: rgb(183, 179, 179);
+}
+
+.ThirdItem{
+    width: 90%;
+    height: 400px;
+    margin-inline: 5%;
+    margin-top: 20px;
+    box-shadow: -4px 4px 10px -5px rgba(0,0,0,0.69);
+        -webkit-box-shadow: -4px 4px 10px -5px rgba(0,0,0,0.69);
+        -moz-box-shadow: -4px 4px 10px -5px rgba(0,0,0,0.69);
+        border-radius: 20px;
+        background-color: white;
+        position: relative;
+}
+@media (max-width:650px){
+    .FirstItem{
+        width: 100%;
+        margin:0 ;
+        margin-top: 20px;
+    }
+    
+}
+/* second item */
+.SecondItem{
+    width: 90%;
+    height: 400px;
+    margin-inline: 5%;
+    margin-top: 20px;
+    box-shadow: -4px 4px 10px -5px rgba(0,0,0,0.69);
+        -webkit-box-shadow: -4px 4px 10px -5px rgba(0,0,0,0.69);
+        -moz-box-shadow: -4px 4px 10px -5px rgba(0,0,0,0.69);
+        border-radius: 20px;
+        background-color: white;
+        position: relative;
+    
+}
+.SecondItem-hidden {
+    height: 0px
+}
+.SecondItem-dark{
+    background-color: #202124;
+}
+.SecondItem div{
+    background: transparent;
+    
+}
+.SecondItem .edit-details-title{
+height: 10%;
+cursor: pointer;
+}
+.SecondItem .edit-details-title h2{
+    margin-top: 4px;
+    font-size: 15px;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.SecondItem-dark .edit-details-title h2{
+    color: white;
+}
+.SecondItem .item1{
+height: 60%;
+}
+.SecondItem .item1 section{
+    height: 100%;
+    width: 50%;
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+}
+.SecondItem .item1 section div{
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    flex: 1;
+    gap: 4px;
+}
+.SecondItem .item1 section div label{
+    text-align: center;
+    font-weight: 600;
+    font-size: 14px;
+    text-transform:capitalize ;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+.SecondItem-dark .item1 section div label{
+color: rgb(215, 212, 212);
+}
+.SecondItem .item1 section div input{
+    font-weight: 800;
+    padding-left: 8px;
+    caret-color: var(--nuetral);
+    background-color:#F3EEEE;
+    width: 70%;
+    color:rgb(64, 62, 62);
+    height: 60%;
+    outline: none;
+    border: none;
+    margin-left: 20%;
+    border-radius: 20px;
+    border: 2px var(--nuetral) solid;
+}
+.SecondItem-dark .item1 section div input{
+    background-color: #303134;
+    border: 2px var(--nuetral) solid;
+    color: white;
+}
+.SecondItem .item1 section div select{
+    background-color: #F3EEEE;
+    width: 70%;
+    color: black;
+    height: 60%;
+    outline: none;
+    border: none;
+    margin-left: 20%;
+    border-radius: 20px;
+    text-align: center;
+    font-family: sans-serif;
+    cursor: pointer;
+    font-weight: 600;
+    text-transform: capitalize;
+    border: 2px var(--nuetral) solid;
+}
+.SecondItem-dark .item1 section div select{
+    background-color: #303134;
+    border: 2px var(--nuetral) solid;
+    color: white;
+}
+.SecondItem .item1 section div  option{
+    font-weight: 400;
+    cursor: pointer;
+    font-style: italic;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    
+}
+.SecondItem .item2{
+height: 40%;
+}
+
+.SecondItem .item2 label{
+    text-align: center;
+    font-weight: 600;
+    font-size: 14px;
+    text-transform:capitalize ;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+.SecondItem-dark .item2  label{
+color: rgb(215, 212, 212);
+}
+.SecondItem .item2  input{
+    background-color:#F3EEEE;
+    width: 70%;
+    color:rgb(64, 62, 62);
+    height: 45px;
+    outline: none;
+    border: none;
+    margin-left: 20%;
+    border-radius: 20px;
+    border: 2px var(--nuetral) solid;
+    font-weight: 800;
+    padding-left: 8px;
+    caret-color: var(--nuetral);
+}
+.SecondItem-dark .item2  input{
+    background-color: #303134;
+    border: 2px var(--nuetral) solid;
+    color: white;
+    font-weight: 800;
+    padding-left: 8px;
+    caret-color: var(--nuetral);
+
+}
+.SecondItem .item2 button{
+    width: 20%;
+    margin-left: 40%;
+    color: white;
+    background-color: var(--nuetral);
+    border: none;
+    font-weight: 900;
+    font-size: 17px;
+    height: 40px;
+    border-bottom-left-radius: 15px;
+    border-top-right-radius: 15px;
+    cursor: pointer;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+@media (max-width:650px){
+    .SecondItem .item1 section{
+        width: 100%;
+    }  
+    .SecondItem .edit-details-title h2{
+        font-size: 13px;
+    }
+}
+/*third item*/
+.ThirdItem{
+    width: 50%;
+    height: 250px;
+    margin-inline: 5%;
+    margin-top: 20px;
+    margin-bottom: 80px;
+    box-shadow: -4px 4px 10px -5px rgba(0,0,0,0.69);
+        -webkit-box-shadow: -4px 4px 10px -5px rgba(0,0,0,0.69);
+        -moz-box-shadow: -4px 4px 10px -5px rgba(0,0,0,0.69);
+        border-radius: 20px;
+        background-color: white;
+        position: relative;
+}
+.ThirdItem-dark {
+    background-color: #202124;
+}
+.ThirdItem div{
+background-color: transparent;
+height: 10%;
+}
+.ThirdItem section{
+background-color: transparent;
+height: 90%;
+display: flex;
+flex-direction: column;
+}
+.ThirdItem .change-password-title h3{
+    margin-top: 8px;
+    font-size: 15px;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.ThirdItem-dark .change-password-title h3{
+    color: white;
+}
+.ThirdItem section div{
+height: 40%;
+display: flex;
+flex-direction: column;
+gap: 1px;
+gap: 4px;
+}
+.ThirdItem section div input{
+    background-color:#F3EEEE;
+    width: 70%;
+    color:rgb(64, 62, 62);
+    height: 45px;
+    outline: none;
+    border: none;
+    margin-left: 20%;
+    border-radius: 20px;
+    border: 2px var(--nuetral) solid;
+    font-weight: 800;
+    padding-left: 8px;
+    caret-color: var(--nuetral);
+}
+.ThirdItem-dark section div input{
+    background-color: #303134;
+    border: 2px var(--nuetral) solid;
+    color: white;
+    font-weight: 800;
+    padding-left: 8px;
+    caret-color: var(--nuetral);
+}
+.ThirdItem section div label{
+    text-align: center;
+    font-weight: 600;
+    font-size: 14px;
+    text-transform:capitalize ;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.ThirdItem-dark section div label{
+    color: rgb(214, 211, 211);
+}
+.ThirdItem section button{
+    width: 40%;
+    margin-left: 30%;
+    color: white;
+    background-color: var(--nuetral);
+    border: none;
+    font-weight: 900;
+    font-size: 17px;
+    height: 40px;
+    border-bottom-left-radius: 15px;
+    border-top-right-radius: 15px;
+    cursor: pointer;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+@media (max-width:650px){
+    .ThirdItem{
+        width: 100%;
+    }
+    .ThirdItem .change-password-title h3{
+        font-size: 13px;
+    }
+}
