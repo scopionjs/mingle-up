@@ -9,17 +9,17 @@ let HomeRight =()=>{
         <div className={userdetails.isDarkMode?"HomeRight HomeRight-dark":"HomeRight"} >
         <div className='items-wrapper'>
         <div>
-<img src='demo1.png' />
-<Link to='/myprofile'>mary natasha</Link>
+<img src={userdetails.user_credentials.profileUrl} alt={userdetails.user_credentials.userName} />
+<Link to='/myprofile'>{userdetails.user_credentials.userName}</Link>
         </div>
         <hr/>
         <section>
-<p>female</p>
-<p>men</p>
-<p>cooking</p>
-<p>serious relationship</p>
-<p>lusaka , zambia</p>
-<p>21</p>
+<p>{userdetails.user_credentials.gender}</p>
+<p>{userdetails.user_credentials.interestedIn}</p>
+<p>{userdetails.user_credentials.hobbies[0]}</p>
+<p>{userdetails.user_credentials.city},{userdetails.user_credentials.country}</p>
+<p>{userdetails.user_credentials.lookingFor}</p>
+<p>{userdetails.user_credentials.age}</p>
         </section>
         </div>
         </div>

@@ -41,7 +41,7 @@ navigate('/messages')
   }
   // redirect to home
   let redirect_to_home=()=>{
-    navigate('/')
+    navigate('/home')
   }
       return(
         <div className="top-nav-bars" >

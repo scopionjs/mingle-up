@@ -411,6 +411,32 @@ font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida San
 .HomeRight-dark .items-wrapper section p:nth-child(6):before{
     color: #fcfbfb;
 }
+.love-board-first-loader{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.love-board-first-loader span svg{
+    color:rgb(205,79,79) ;
+}
+.users-list-first-loader{
+    width: 95%;
+    margin-inline: 2.5%;
+    height: 250px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: -4px 4px 10px -5px rgba(0,0,0,0.69);
+        -webkit-box-shadow: -4px 4px 10px -5px rgba(0,0,0,0.69);
+        -moz-box-shadow: -4px 4px 10px -5px rgba(0,0,0,0.69);
+    position: relative;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.users-list-first-loader span svg{
+    color:rgb(205,79,79) ;
+}
 @media (min-width:990px){
     .love-board div section:first-child .add-to-board{
         height: 100px;

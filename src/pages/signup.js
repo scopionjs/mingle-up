@@ -1,10 +1,19 @@
 import { AddPhotoAlternate } from '@mui/icons-material'
 import axios  from 'axios'
-import React, { useRef, useState } from 'react'
+import React, {useContext, useLayoutEffect , useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-
+import { userdetailscontext } from "../contexts/userdetails"
+import { login_user } from '../lib/loginuser'
+import js_cookies from 'js-cookie'
 let SignUp =()=>{
-    let nav= useNavigate()
+    let nav = useNavigate()
+    let userdetails = useContext(userdetailscontext)
+    // function to login a user when cookies are found  
+    useLayoutEffect(()=>{
+if(js_cookies.get('email') && js_cookies.get('passWord')){
+login_user(js_cookies.get('passWord'),js_cookies.get('email'),nav,userdetails)
+}
+    },[])
     //TARGET WRAPPERS
     let step1=useRef()
     let step2=useRef()
@@ -143,7 +152,7 @@ let SignUp =()=>{
                 entered_hobbies.push(e.target.value)
                 set_hobbies(entered_hobbies.concat(...hobbies))
             e.target.value=''
-                console.log(hobbies,entered_hobbies)
+                
             }
         }
         setUserName_error('')

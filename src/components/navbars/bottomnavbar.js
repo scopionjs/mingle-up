@@ -24,7 +24,7 @@ let BottomNavBar =()=>{
       }
       // redirect to home
       let redirect_to_home=()=>{
-        navigate('/')
+        navigate('/home')
       }
     return(
         <div className={userdetails.isDarkMode?"bottom-nav-bar bottom-nav-bar-dark":"bottom-nav-bar"} >

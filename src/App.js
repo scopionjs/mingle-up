@@ -12,7 +12,7 @@ import { SignIn } from './pages/login';
 function App() {
 return(
   <Routes>
-    <Route path='/' element={<Home />} />
+    <Route path='/home' element={<Home />} />
     <Route path='/myprofile' element={<MyProfile />} />
     <Route path='/messages' element={<Message />} />
     <Route path='/register' element={<SignUp />} />
