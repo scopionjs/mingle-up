@@ -16,7 +16,7 @@ let SignIn =()=>{
                     <button type='submit' >log in</button>
                     <div className='other-links' >
                         <Link to='/' >forgot password?</Link>
-                        <Link to='/' >already have an account?</Link>
+                        <Link to='/' >dont have an account?</Link>
                     </div>
                 </div>
         </div>
