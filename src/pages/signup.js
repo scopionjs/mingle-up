@@ -318,7 +318,6 @@ if(looking_for == null){
         <select onChange={(e)=>{set_gender(e.target.value) }} >
             <option value='male' >male</option>
             <option  value='female'>female</option>
-            <option value='both' >both</option>
         </select>
     </div>
     <p style={{color:'red',fontSize:"10px",fontFamily:'sans-serif',marginTop:'4px',fontWeight:'700'}} >{gender_error}</p>
@@ -346,9 +345,8 @@ if(looking_for == null){
         who are you interested in
     </label>
     <select onChange={(e)=>{set_interested_in(e.target.value )}} >
-        <option value='men' >men</option>
-        <option value='women' >women</option>
-        <option value='both' >both</option>
+        <option value='male' >men</option>
+        <option value='female' >women</option>
     </select>
 </div>
 <p style={{color:'red',fontSize:"10px",fontFamily:'sans-serif',marginTop:'4px',fontWeight:'700'}} >{interested_in_error}</p>

@@ -14,7 +14,7 @@ import { protect_routes } from "../lib/protect-routes"
 let Home =()=>{
   let nav=useNavigate()
   let [isLogedin,setIsLogedIn]=useState(null)
-  let [startLoading,set_startLoading]=useState(true)
+  let [startFetching,set_startFetching]=useState(false)
   //context for user details
   let userdetails = useContext(userdetailscontext)
   // to protect the route
@@ -24,7 +24,7 @@ let Home =()=>{
 //to start fetching fetching data when verified that user is loged in
 useEffect(()=>{
   if(isLogedin !==null){
-    console.log('start fetching')
+    set_startFetching(true)
   }
 },[isLogedin])
     return(
@@ -33,7 +33,7 @@ useEffect(()=>{
           <TopNavBar />
          <div className="home-bars-wrapper" >
          <HomeLeft />
-         <HomeCenter shouldLoad={startLoading} />
+         <HomeCenter shouldFetch={startFetching} />
          <HomeRight />
          </div>
          <BottomNavBar />
