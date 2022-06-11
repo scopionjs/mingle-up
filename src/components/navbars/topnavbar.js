@@ -5,7 +5,7 @@ import React from 'react'
 import { Home, Logout, Message, Notifications, NotListedLocation, Person, Search, ThumbUp, ToggleOff, ToggleOn } from "@mui/icons-material"
 import { Link, useNavigate } from "react-router-dom"
 import { Notification } from "./notification"
-
+import cookies from 'js-cookie'
 let TopNavBar =()=>{
     let navigate =useNavigate()
     let userdetails = useContext(userdetailscontext)
@@ -13,8 +13,10 @@ let TopNavBar =()=>{
     let toggleDarkMode=()=>{
   if(userdetails.isDarkMode){
     userdetails.setDarkMode(false)
+    cookies.set('isDarkMode',false)
   }else{
     userdetails.setDarkMode(true)
+    cookies.set('isDarkMode',true)
   }
     }
     //function to toggle menu
@@ -42,6 +44,12 @@ navigate('/messages')
   // redirect to home
   let redirect_to_home=()=>{
     navigate('/home')
+  }
+  //log out user
+  let logout_user =()=>{
+    cookies.remove('passWord')
+    cookies.remove('email')
+    navigate('/login')
   }
       return(
         <div className="top-nav-bars" >
@@ -89,7 +97,7 @@ navigate('/messages')
                 <span className="item1"> <Link to='/'><NotListedLocation /><p> near me</p> </Link> </span>
                 <span className="item1"><Link to='/myprofile'> <Person /><p> profile</p></Link></span>
                 <span className="item2" onClick={toggleDarkMode}>{userdetails.isDarkMode?(<ToggleOn />):( <ToggleOff />) } <p>dark mode</p></span>
-                <span className="item2"><Logout /> <p> Logout</p></span>
+                <span onClick={logout_user} className="item2"><Logout /> <p> Logout</p></span>
               </section>
              
             </div>

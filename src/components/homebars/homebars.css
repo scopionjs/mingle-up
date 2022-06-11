@@ -198,8 +198,8 @@ background-color: #303134;
     gap: 12px;
 }
 .available-matches{
-    width: 95%;
-    margin-inline: 2.5%;
+    width: 80%;
+    margin-inline: 10%;
     height: 450px;
     background-color: #ffffff;
     border-radius: 10px;
@@ -214,37 +214,64 @@ background-color: #303134;
     object-fit:fill;
     background-blend-mode: lighten;
 }
-.available-matches .info{
-    height: 80px;
-    width: 40%;
+.available-matches .info {
+    
+    height: 50%;
+    width: 100%;
     position: absolute;
-    border-bottom-right-radius: 20px;
     border-top-right-radius: 20px;
-    top:50%;
-    background-color:rgba(55, 52, 52, 0.3);
+    border-top-left-radius: 20px;
+    top:60%;
+    background:linear-gradient(180deg,rgba(110, 106, 106, 0.1) 0%,rgb(6, 6, 6) 100%);
     padding-left: 5px;
 }
-.available-matches .info a{
+.info1{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.available-matches .info .info1 a{
 overflow: hidden;
 text-overflow: ellipsis;
 white-space: nowrap;
 color: white;
-font-weight: 700;
-font-size: 18px;
+display: block;
+font-weight: 800;
+font-size: 32px;
 text-decoration: none;
 text-transform: capitalize;
 font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
-.available-matches .info a:hover{
+.available-matches .info .info1 a:hover{
 color: var(--nuetral);
 }
-.available-matches .info p2{
-    display: block;
+.available-matches .info .info1 p{
+    display: inline-block;
     color: white;
     font-weight: 500;
     font-size: 14px;
     margin-left: 10px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+    .info2{
+        display: flex;
+        gap: 3px;
+        width: 100%;
+        margin-top: 12px;
+        padding-left: 20px;
+        padding-right: 20px;
+        overflow-x: hidden;
+    }
+    .info2 p{
+        background-color:rgb(155, 57, 57) ;
+        color: white;
+        color: rgb(204, 201, 201);
+        border-radius: 8px;
+        padding: 5px;
+        padding-bottom: 3px;
+        font-family: sans-serif;
+        font-size: 14px;
+        font-weight: 500px;
+
     }
 .available-matches .btns{
     position: absolute;
@@ -272,9 +299,11 @@ background-color:rgba(44, 42, 42, 0.3);
     width: 40px;
     height: 40px;
 }
+/*
 .available-matches .btns button.love{
 color: red;
 }
+*/
 /*right bar*/
 .HomeRight .items-wrapper{
     width: 80%;
@@ -420,9 +449,9 @@ font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida San
     color:rgb(205,79,79) ; 
 }
 .users-list-first-loader{
-    width: 95%;
-    margin-inline: 2.5%;
-    height: 250px;
+    width: 80%;
+    margin-inline: 10%;
+    height: 200px;
     background-color: #ffffff;
     border-radius: 10px;
     box-shadow: -4px 4px 10px -5px rgba(0,0,0,0.69);
@@ -434,9 +463,27 @@ font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida San
     justify-content: center;
     align-items: center;
 }
+.users-list-first-loader-dark{
+background-color: #202124;
+}
 .users-list-first-loader span svg{
     color:rgb(205,79,79) ;
 }
+
+.available-matches .btns button.loved{
+    border:3px  rgb(237, 29, 29) solid;
+}
+.loved svg{
+color: rgb(237, 29, 29);
+}
+ 
+.available-matches .btns button.liked{
+    border:3px  rgb(66, 170, 249) solid;
+}
+.liked svg{
+    color: rgb(66, 170, 249);
+}
+
 @media (min-width:990px){
     .love-board div section:first-child .add-to-board{
         height: 100px;
@@ -474,11 +521,19 @@ font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida San
 }
 
 @media (max-width:650px){
-    .available-matches .info p1{
+    .available-matches {
+        width: 96%;
+        margin-inline:2% ;
+    }
+    .users-list-first-loader{
+        width: 96%;
+        margin-inline:2% ;
+    }
+    .available-matches .info .info1 p{
         font-size: 14px;
     }
-    .available-matches .info p2{
-        font-size: 10px;
+    .available-matches .info .info1 a{
+        font-size: 25px;
     }
     .available-matches-wrapper{
         margin-bottom: 90px;

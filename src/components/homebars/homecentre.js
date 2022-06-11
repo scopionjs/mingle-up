@@ -44,14 +44,13 @@ let HomeCenter =({shouldFetch,loveBoardData,usersData})=>{
                     set_matches(matches_array)
                     viewed_ids=users.data.viewed_ids
                 set_startLoading(false)
-                //console.log('available',users.data.viewed_ids,matches_array)
+               
                 }else{
                     //updating the states and ids-variable in the rest of the states
                     set_matches(match=>match.concat(...users.data.results))
                     set_matches(matches_array)
                     set_startLoading(false)  
                     viewed_ids=users.data.viewed_ids
-                //console.log('available',users.data.viewed_ids,matches_array)
                 }
                 }
                 // when results are not regarding the users preffered age
@@ -61,7 +60,6 @@ let HomeCenter =({shouldFetch,loveBoardData,usersData})=>{
                     matches_array=[...matches].concat(...users.data.incremental_results)
                     set_matches(matches_array)
                     viewed_ids=users.data.viewed_ids
-                    console.log('available',users.data.viewed_ids,viewed_ids)
                 set_startLoading(false)
                 //console.log('other users')
                 }else{
@@ -86,8 +84,11 @@ let HomeCenter =({shouldFetch,loveBoardData,usersData})=>{
 
     // fetching users when user login is verified
     useEffect(()=>{
-        if(shouldFetch==true){
+        if(shouldFetch==true && matches_array.length==0 ){
             fetchUsers()
+        }else if(shouldFetch==true ){
+            set_matches(matches_array)
+            set_startLoading(false)
         }
     },[shouldFetch])
     useEffect(()=>{
@@ -99,6 +100,64 @@ let HomeCenter =({shouldFetch,loveBoardData,usersData})=>{
        //});
         }
     },[startLoading])
+                      //TOGGLE LOVE
+    let loveUser =async(user_id)=>{
+        await axios.post('https://dating-app-api-nodejs.vercel.app/api/user/love/',{loved:`${user_id}`,lover:`${userdetails.user_credentials._id}`})
+    }
+    let toggleLove =(e,user_id,user_lovers)=>{
+        loveUser(user_id)
+        if(e.target.localName == 'button' || e.target.nodeName =="BUTTON" ){
+            if(Array.from(e.target.classList).includes('loved')){
+                e.target.classList.remove('loved')
+            }else{
+                e.target.classList.add('loved') 
+            }
+        }else if(e.target.localName == 'svg' || e.target.nodeName =="svg" ){
+            if(Array.from(e.target.parentElement.classList).includes('loved')){
+                e.target.parentElement.classList.remove('loved')
+            }else{
+                e.target.parentElement.classList.add('loved') 
+            }
+        }else if(e.target.localName == 'path' || e.target.nodeName =="path"){
+            if(Array.from(e.target.parentElement.parentElement.classList).includes('loved')){
+                e.target.parentElement.parentElement.classList.remove('loved')
+            }else{ 
+                e.target.parentElement.parentElement.classList.add('loved') 
+            }
+        }
+    };
+                        //TOGGLE LIKE
+    let likeUser =async(user_id)=>{
+        await axios.post('https://dating-app-api-nodejs.vercel.app/api/user/like/',{liked:`${user_id}`,liker:`${userdetails.user_credentials._id}`})
+    }
+    let toggleLike =(e,user)=>{
+         likeUser(user)
+         if(e.target.localName == 'button' || e.target.nodeName =="BUTTON" ){
+            if(Array.from(e.target.classList).includes('liked')){
+                e.target.classList.remove('liked')
+               // console.log('disloved',e.target.localName,e)
+            }else{
+                e.target.classList.add('liked') 
+                //console.log('loved',e.target.localName,e)
+            }
+        }else if(e.target.localName == 'svg' || e.target.nodeName =="svg" ){
+            if(Array.from(e.target.parentElement.classList).includes('liked')){
+                e.target.parentElement.classList.remove('liked')
+               // console.log('disloved',e.target.parentElement.localName)
+            }else{
+                e.target.parentElement.classList.add('liked') 
+        //console.log('loved',e.target.parentElement.localName)
+            }
+        }else if(e.target.localName == 'path' || e.target.nodeName =="path"){
+            if(Array.from(e.target.parentElement.parentElement.classList).includes('liked')){
+                e.target.parentElement.parentElement.classList.remove('liked')
+                //console.log('disloved',e.target.parentElement.parentElement.localName)
+            }else{ 
+                e.target.parentElement.parentElement.classList.add('liked') 
+        //console.log('loved',e.target.parentElement.parentElement.localName)
+            }
+        }
+    };
     return(
         <div className='HomeCenter' >
         <div className={userdetails.isDarkMode?"love-board love-board-dark":"love-board"}>
@@ -124,19 +183,26 @@ let HomeCenter =({shouldFetch,loveBoardData,usersData})=>{
 {startLoading==true?(<div className='users-list-first-loader' ><CircularProgress /></div>):<div ref={matches_wrapper} className='available-matches-wrapper' >
 {matches.map((user,index)=>(
     <div key={index} className={userdetails.isDarkMode?"available-matches available-matches-dark":"available-matches"} >
-    <img src={user.profileUrl} />
+    <img loading='lazy' alt='' src={user.profileUrl} />
     <div className='info' >
+        <section className='info1' >
         <Link to='/'>{user.userName}</Link>
-        <p2>{user.age} years old</p2>
+        <p>{user.age} years old</p> <p>lives in {user.city},{user.country} </p>
+        </section>
+        <section className='info2' >
+        {user.hobbies.map((hobby,index)=>(
+            <p key={index} >hobby</p>
+        ))}
+        </section>
     </div>
     <div className='btns' >
     <button> <Textsms /></button>
-    <button className='love'><Favorite /></button>
-    <button><ThumbUp /></button>
+    <button onClick={(e)=>{toggleLove(e,user._id,user.lovers);}} className={user.lovers.includes(`${userdetails.user_credentials._id}`) || user.lovers.includes(userdetails.user_credentials._id) ?'loved':''}><Favorite /></button>
+    <button onClick={(e)=>{toggleLike(e,user._id,user.likers);}} className={user.likers.includes(`${userdetails.user_credentials._id}`) || user.likers.includes(userdetails.user_credentials._id) ?'liked':''}><ThumbUp /></button>
     </div>
 </div>
 ))}
-<div className='users-list-first-loader' ><CircularProgress /></div>
+<div className={userdetails.isDarkMode?"users-list-first-loader users-list-first-loader-dark":"users-list-first-loader"} ><CircularProgress /></div>
         </div>}
         
 

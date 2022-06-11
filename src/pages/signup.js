@@ -290,8 +290,8 @@ if(looking_for == null){
 <div className='step1 ' ref={step1} >
     <h3>register</h3>
     <div className='register-name' >
-        <label>name</label>
-        <input placeholder='name' onChange={(e)=>{setUserName(e.target.value); }}  maxLength={20}  />
+        <label>username</label>
+        <input placeholder='username' onChange={(e)=>{setUserName(e.target.value); }}  maxLength={20}  />
     </div>
     <p style={{color:'red',fontSize:"10px",fontFamily:'sans-serif',marginTop:'4px',fontWeight:'700'}} >{userName_error}</p>
 

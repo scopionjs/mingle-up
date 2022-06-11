@@ -32,6 +32,7 @@ box-shadow: -4px 4px 10px -5px rgba(0,0,0,0.69);
 .FirstItem .item1{
 background-color: #702B2B;
 height: 180px;
+
 }
 .FirstItem .item1 .profile-wrapper{
     width:100%;
@@ -71,7 +72,7 @@ height: 180px;
 color: rgb(38, 37, 37);
 font-family: sans-serif;
 font-weight: 900;
-text-transform: capitalize;
+text-transform: uppercase;
 
 }
 .FirstItem-dark .item1 .profile-wrapper p{
@@ -87,16 +88,19 @@ text-transform: capitalize;
 .FirstItem .item2 .detail1{
     background: transparent;
 flex: 1;
-margin-top: 50px;
+margin-top: 47px;
 display: flex;
 flex-direction: column;
 justify-content:end;
 margin-bottom: 15px;
 margin-left: 15px;
+max-width: 220px;
+min-width: 220px;
 }
 .FirstItem .item2 .detail1 p{
     font-weight: 600;
-    font-size: 14px;
+    font-size: 12px;
+
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 .FirstItem-dark .item2 .detail1 p{
@@ -120,7 +124,7 @@ color: rgb(47, 45, 45);
 font-size: 15px;
 }
 .FirstItem .item2 .detail1 p:nth-last-child(1)::before{
-    content: 'hobbies: ';
+    content: 'status: ';
 font-family: sans-serif;
 text-transform: capitalize;
 font-weight: 600;
@@ -136,17 +140,19 @@ font-size: 15px;
 .FirstItem-dark .item2 .detail1 p:nth-last-child(1)::before{
     color: rgb(183, 179, 179);
 }
+
 .FirstItem .item2 .detail2{
     background: transparent;
 flex: 1;
-margin-top: 50px;
+margin-top: 47px;
 display: flex;
 flex-direction: column;
-justify-content:end;
-align-items: flex-end;
+justify-content:flex-end;
+align-items: flex-start;
 margin-bottom: 15px;
-margin-left: 15px;
-margin-right: 10%;
+margin-right: 15px;
+max-width: 220px;
+min-width: 220px;
 }
 .FirstItem-dark .item2 .detail2 p{
     color: rgb(231, 225, 225);
@@ -155,9 +161,10 @@ margin-right: 10%;
     white-space: nowrap;
     word-wrap:nowrap ;
     font-weight: 600;
-    font-size: 14px;
+    font-size: 12px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
+
 .FirstItem .item2 .detail2 p:nth-last-child(3)::before{
     content: 'location: ';
 font-family: sans-serif;
@@ -192,6 +199,93 @@ font-size: 15px;
     color: rgb(183, 179, 179);
 }
 
+.detail3{
+    flex: 3;
+    
+    height: 160px;
+    margin-top: 6%;
+    display: flex;
+    flex-direction:column ;
+    gap: 1px;
+}
+.detail3 section{
+    
+    flex: 1;
+    margin: 0;
+}
+.bio-wrapper{
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.bio-wrapper p{
+    color: #524f4f;
+    font-weight: 500;
+    font-size: 14px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.bio-wrapper-dark p{
+color: aliceblue;
+}
+.hobbies-wrapper{
+display: flex;
+gap:4px;
+justify-content: center;
+flex-wrap: wrap;
+}
+.hobbies-wrapper p{
+
+font-style: italic;
+background-color: #702B2B;
+backdrop-filter: blur(10px);
+max-height:20px ;
+min-height:20px ;
+padding-inline: 5px;
+border-radius:9px ;
+color: aliceblue;
+}
+.hobbies-wrapper-dark p{
+    
+    background-color: rgba(205,79,79,0.6);
+}
+.buttons-wrapper{
+    display: flex;
+    justify-content: center;
+    gap:6px;
+}
+.buttons-wrapper button{
+    border: none;
+    outline: none;
+    width: 70px;
+    color: white;
+    border-radius: 6px;
+    max-height: 33px;
+    background-color: #702B2B;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+    font-weight: bold;
+}
+.buttons-wrapper button:nth-child(3){
+    width: 90px;
+}
+.buttons-wrapper button svg{
+    width: 20px;
+}
+.buttons-wrapper button:nth-child(1) svg{
+color: rgb(220, 49, 49);
+}
+.buttons-wrapper button:nth-child(2) svg{
+    color: rgb(105, 191, 228);
+    }
+    .buttons-wrapper button:nth-child(3) svg{
+        color: rgb(212, 212, 81);
+        }
+        .buttons-wrapper button:nth-child(4) svg{
+            color: rgb(179, 6, 121);
+            }
 .ThirdItem{
     width: 90%;
     height: 400px;
@@ -376,6 +470,83 @@ color: rgb(215, 212, 212);
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 @media (max-width:650px){
+    .hobbies-wrapper{
+        border-bottom:8px transparent solid ;
+    }
+    .FirstItem .item2 .detail1 p:nth-last-child(3)::before{
+    font-size: 10px;
+    }
+    .FirstItem .item2 .detail1 p:nth-last-child(2)::before{
+    font-size: 10px;
+    }
+    .FirstItem .item2 .detail1 p:nth-last-child(1)::before{
+    font-size: 10px;
+    }
+    .FirstItem .item2 .detail2 p:nth-last-child(3)::before{
+    font-size: 10px;
+    }
+    .FirstItem .item2 .detail2 p:nth-last-child(2)::before{
+    font-size: 10px;
+    }
+    .FirstItem .item2 .detail2 p:nth-last-child(2){
+        font-size: 9px;
+    }
+    .FirstItem .item2 .detail2 p:nth-last-child(1)::before{
+    font-size: 10px;
+    }
+    .FirstItem .item1 .profile-wrapper{
+        top: 20px;
+    }
+    .FirstItem .item1{
+        max-height:120px;
+    }
+    .FirstItem{
+        height: 450px;
+    }
+    .FirstItem .item2 .detail3{
+    flex: 1;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-start;
+    max-width: 100%;
+    min-width:100% ;
+    position: absolute;
+    height: 120px;
+    margin-top: 70px;
+    }
+
+    .FirstItem .item2{
+        flex-direction: column;
+        position: relative;
+        height:320px;
+    }
+    .FirstItem .item2 .detail1{
+        flex: 1;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-start;
+    max-width: 50%;
+    min-width:50% ;
+    position: absolute;
+    height: 170px;
+    margin-top: 210px;
+    padding-left: 13px;
+    }
+    .FirstItem .item2 .detail2{
+        flex: 1;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content:flex-start;
+        max-width: 50%;
+        min-width:50% ;
+        position: absolute;
+        height: 170px;
+        margin-top: 210px;
+        margin-left: 50%;
+    }
     .SecondItem .item1 section{
         width: 100%;
     }  
@@ -473,11 +644,14 @@ gap: 4px;
     cursor: pointer;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
-@media (max-width:650px){
+@media (max-width:650px){ 
     .ThirdItem{
         width: 100%;
     }
     .ThirdItem .change-password-title h3{
         font-size: 13px;
+    }
+    .SecondItem .item2 button{
+        width: 40%;
     }
 }
