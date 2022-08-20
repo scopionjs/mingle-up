@@ -1,6 +1,6 @@
 import { AddPhotoAlternate } from '@mui/icons-material'
 import axios  from 'axios'
-import React, {useContext, useLayoutEffect , useRef, useState } from 'react'
+import React, {useContext, useEffect , useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { userdetailscontext } from "../contexts/userdetails"
 import { login_user } from '../lib/loginuser'
@@ -9,7 +9,7 @@ let SignUp =()=>{
     let nav = useNavigate()
     let userdetails = useContext(userdetailscontext)
     // function to login a user when cookies are found  
-    useLayoutEffect(()=>{
+    useEffect(()=>{
 if(js_cookies.get('email') && js_cookies.get('passWord')){
 login_user(js_cookies.get('passWord'),js_cookies.get('email'),nav,userdetails)
 }
@@ -230,8 +230,10 @@ if(looking_for == null){
                     "https://api.cloudinary.com/v1_1/dbkpvjl7s/image/upload",
                     data
                     );
-                    e.target.textContent='creating..'
-                    let create_user= await axios.post('https://dating-app-api-nodejs.vercel.app/api/user/create',{
+                    let create_user
+                    if(response){
+                        e.target.textContent='creating..'
+                    create_user= await axios.post('https://dating-app-api-nodejs.vercel.app/api/user/create',{
                         userName:userName,
                         email:email,
                         passWord:re_entered_password,
@@ -249,6 +251,10 @@ if(looking_for == null){
                         city:location.data.city,
                         firstDateExpectation:first_date_expectations,
                       })
+                    }else{
+                        e.target.textContent='failed try again'
+                       
+                    }
 
                       if(create_user){
                         e.target.textContent='created !'

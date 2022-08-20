@@ -3,16 +3,18 @@ import React, { useEffect, useRef, useState } from 'react'
 import "./homebars.css"
 import { useContext } from "react"
 import { userdetailscontext } from "../../contexts/userdetails"
-import { Link } from 'react-router-dom'
+import { Link , useNavigate } from 'react-router-dom'
 import { CircularProgress } from '@mui/material'
 import axios from 'axios'
 let matches_array=[]
-let HomeCenter =({shouldFetch,loveBoardData,usersData})=>{
+let HomeCenter =({shouldFetch})=>{
     let matches_wrapper=useRef()
+    let nav =useNavigate()
     let userdetails = useContext(userdetailscontext)
     let viewed_ids=[]
     let [startLoading,set_startLoading]=useState(true)
     let [matches,set_matches]=useState([])
+    
     //FUNCTION TO FETCH DATA WITH PAGINATION SYSTEM
     let fetchUsers =async()=>{
         // ensuring that the number of viewed ids to be sent are equal to the number of object of displayed items
@@ -103,6 +105,7 @@ let HomeCenter =({shouldFetch,loveBoardData,usersData})=>{
                       //TOGGLE LOVE
     let loveUser =async(user_id)=>{
         await axios.post('https://dating-app-api-nodejs.vercel.app/api/user/love/',{loved:`${user_id}`,lover:`${userdetails.user_credentials._id}`})
+        document.querySelector('.available-matches-wrapper').scrollTo(0,500)
     }
     let toggleLove =(e,user_id,user_lovers)=>{
         loveUser(user_id)
@@ -158,13 +161,37 @@ let HomeCenter =({shouldFetch,loveBoardData,usersData})=>{
             }
         }
     };
+    let openConversation=async(user_id,receiver_name,user_dp)=>{
+        try {
+            let res=await axios.post('http://localhost:5000/api/conversation/create-conversation',{
+           members:[`${user_id}`,`${userdetails.user_credentials._id}`],
+           members2:[`${userdetails.user_credentials._id}`,`${user_id}`]
+        })
+        //when the conversation has already been created
+        if(res.data.exists){
+            nav(`/messages/?fetchmessages=TRUE&&&&conversation_id=${res.data.exists[0]._id}&&&&&&receiver_id=${user_id}&&&&&&receiver_name=${receiver_name}&&&&&&receiver_pic=${user_dp}`)
+            
+        }else if(res.data._id){
+            //when the conversation has already been created
+            nav(`/messages/?fetchmessages=TRUE&&&&conversation_id=${res.data._id}&&&&&&receiver_id=${user_id}&&&&&&receiver_name=${receiver_name}&&&&&&receiver_pic=${user_dp}`)
+        
+        }
+      
+        } catch (error) {
+            console.log(error.message)
+        }
+    }
+    let openAddBoard =(e)=>{
+        userdetails.setShowAddToBoardModal(true)
+    }
     return(
         <div className='HomeCenter' >
+            
         <div className={userdetails.isDarkMode?"love-board love-board-dark":"love-board"}>
             <p>love board</p>
             <div>
                 <section>
-                    <div className='add-to-board'><p>+</p></div>
+                    <div onClick={openAddBoard} className='add-to-board'><p>+</p></div>
                 </section>
                 {startLoading==true?(<section className='love-board-first-loader' ><CircularProgress /> </section>):<section>
                     <button><ArrowForwardIos /></button>
@@ -196,7 +223,7 @@ let HomeCenter =({shouldFetch,loveBoardData,usersData})=>{
         </section>
     </div>
     <div className='btns' >
-    <button> <Textsms /></button>
+    <button onClick={()=>{openConversation(user._id,user.userName,user.profileUrl)}} > <Textsms /></button>
     <button onClick={(e)=>{toggleLove(e,user._id,user.lovers);}} className={user.lovers.includes(`${userdetails.user_credentials._id}`) || user.lovers.includes(userdetails.user_credentials._id) ?'loved':''}><Favorite /></button>
     <button onClick={(e)=>{toggleLike(e,user._id,user.likers);}} className={user.likers.includes(`${userdetails.user_credentials._id}`) || user.likers.includes(userdetails.user_credentials._id) ?'liked':''}><ThumbUp /></button>
     </div>
@@ -209,4 +236,4 @@ let HomeCenter =({shouldFetch,loveBoardData,usersData})=>{
         </div>
     )
 }
-export {HomeCenter}
+export {HomeCenter} 

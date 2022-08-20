@@ -24,8 +24,10 @@ let TopNavBar =()=>{
     let toggleMenu =()=>{
 if(Array.from(menu.current.classList).includes('hide-menu')){
   menu.current.classList.remove('hide-menu')
+  //menu.current.setAttribute('style','right:75%;')
 }else{
   menu.current.classList.add('hide-menu')
+ // menu.current.setAttribute('style','right:-75%;')
 }
     }
   // function to toggle notifications
@@ -91,7 +93,7 @@ navigate('/messages')
               <div></div>
               <div></div>
             </div>
-            <div ref={menu} className={userdetails.isDarkMode?"menu-bar-wrapper menu-bar-wrapper-dark hide-menu":"menu-bar-wrapper hide-menu"} >
+            <div ref={menu}  className={userdetails.isDarkMode?"menu-bar-wrapper menu-bar-wrapper-dark hide-menu":"menu-bar-wrapper hide-menu"} >
               <section>
                 <span className="item1"><Link to='/'><ThumbUp /><p> Liked me</p></Link></span>
                 <span className="item1"> <Link to='/'><NotListedLocation /><p> near me</p> </Link> </span>

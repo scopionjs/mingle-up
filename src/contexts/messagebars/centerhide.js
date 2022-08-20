@@ -3,8 +3,9 @@ import React from 'react'
 export  let hideCenterContext= createContext()
 let CenterHide =({children})=>{
 let [shouldHide,setShouldHide]=useState(true)
+let [queryChanged,setQueryChanged]=useState(null)
 return( 
-<hideCenterContext.Provider value={{shouldHide,setShouldHide}} >
+<hideCenterContext.Provider value={{shouldHide,setShouldHide,queryChanged,setQueryChanged}} >
     {children}
 </hideCenterContext.Provider>
 )

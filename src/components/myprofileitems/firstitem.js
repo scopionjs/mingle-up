@@ -3,18 +3,37 @@ import './profileitems.css'
 import { AddAPhoto, Block, Chat, Favorite, ThumbUp } from '@mui/icons-material'
 import { useContext} from "react"
 import { userdetailscontext } from "../../contexts/userdetails"
+import axios from 'axios'
 let FirstItem =()=>{
     let userdetails = useContext(userdetailscontext)
     let [image_to_apload,set_image_to_apload]=React.useState()
     //PROTECTING THE ROUTE
 let inputApload = React.useRef()
 let profile_pic =React.useRef()
-    let uploadPhoto =(e)=>{
+    let uploadPhoto =async(e)=>{
 let image_file =inputApload.current.files[0]
 set_image_to_apload(image_file)
 let blob = new Blob([image_file])
 let url = URL.createObjectURL(blob)
 profile_pic.current.src=url
+
+try {
+    let data = new FormData();
+data.append("file", image_to_apload);
+data.append("upload_preset", "mingle-up");
+let response = await axios.post("https://api.cloudinary.com/v1_1/dbkpvjl7s/image/upload",data);
+
+if(response){
+    let updated =await axios.put(`https://dating-app-api-nodejs.vercel.app/api/user/update/${userdetails.user_credentials._id}`,{profileUrl:response.data.secure_url})
+    userdetails.set_user_credentials(updated.data)
+    console.log('done')
+}else{
+    
+}
+} catch (error) {
+    console.log(error.message)
+}
+
     }
   
     return(
@@ -25,7 +44,7 @@ profile_pic.current.src=url
                 <div className='profile-wrapper' >
 
                     <div className='profile-pic-wrapper'>
-                        <img ref={profile_pic} src='demo.jpg' alt='' />
+                        <img ref={profile_pic} src={userdetails.user_credentials.profileUrl} alt='' />
                         <label for="uploadProfile" ><AddAPhoto /></label>
                         <input accept='image/*' ref={inputApload} onChange={uploadPhoto} id='uploadProfile' type='file' />
                     </div>

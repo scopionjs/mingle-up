@@ -87,7 +87,11 @@ border-top-right-radius: 25px;
 padding-top: 6px;
 display: flex;
 flex-direction: column;
+overflow-y: scroll;
  }
+ .msg-list::-webkit-scrollbar{
+    display: none;
+}
  .msg-list-dark{
      background-color: #535458;
  } 
@@ -169,6 +173,10 @@ text-align: center;
 font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 font-style: italic;
 font-size: 13px;
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
+width: 100%;
 }
 .body-dark{
     color: rgb(209, 206, 206);
@@ -187,16 +195,18 @@ font-size: 13px;
 .status{
     position: absolute;
     right: 20px;
-    bottom: 4px;
+    bottom: 0px;
     color: white;
     background-color: rgb(205,79,79);
-    width: 15px;
-    height: 15px;
+    width: 12px;
+    height: 12px;
     border-radius: 50%;
-    text-align: center;
-    font-weight: bold;
+    font-weight: 500;
     font-family: sans-serif;
-    font-size: 12px;
+    font-size: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
 }
 .msg-wrapper .item2{
@@ -347,24 +357,32 @@ text-transform: capitalize;
     color: rgb(208, 205, 205); 
 }
 .sent-msg-body{
+display: block;
 min-height: 40px;
 max-height: auto;
-min-width: auto;
+min-width: 40px;
 max-width: 60%;
-background-color:rgb(205,79,79)  ;
-position:sticky ;
-margin-left: calc(40% - 25px) ;
+position:relative;
+/*sent-msg*/
 bottom: 0px;
-padding: 10px;
-color: rgb(223, 223, 223);
-border-radius: 15px;
-border-bottom-right-radius: 0px;
-font-family: sans-serif;
-z-index: 0;
-font-size: 15px;
-line-height: 20px;
 margin-top: 10px;
 margin-bottom: 8px;
+display: flex;
+justify-content: right;
+left:  calc(40% - 25px) ;
+}
+.sent-msg-body p{
+    font-family: sans-serif;
+    font-size: 15px;
+    color: rgb(223, 223, 223);
+    border: 2px solid white;
+    width: auto;
+    background-color:rgb(205,79,79)  ;
+    padding: 10px;
+    border-radius: 15px;
+    border-bottom-right-radius: 0px;
+    line-height: 20px;
+
 }
 .sent-msg img{
     height:20px ;

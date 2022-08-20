@@ -1,4 +1,4 @@
-import React, { useContext, useLayoutEffect } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import axios  from 'axios'
@@ -9,7 +9,7 @@ let SignIn =()=>{
     let nav = useNavigate()
     let userdetails = useContext(userdetailscontext)
     // function to login a user when cookies are found  
-    useLayoutEffect(()=>{
+    useEffect(()=>{
 if(js_cookies.get('email') && js_cookies.get('passWord')){
 login_user(js_cookies.get('passWord'),js_cookies.get('email'),nav,userdetails)
 }
