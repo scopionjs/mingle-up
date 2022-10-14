@@ -210,7 +210,7 @@ let HomeCenter =({shouldFetch})=>{
 {startLoading==true?(<div className='users-list-first-loader' ><CircularProgress /></div>):<div ref={matches_wrapper} className='available-matches-wrapper' >
 {matches.map((user,index)=>(
     <div key={index} className={userdetails.isDarkMode?"available-matches available-matches-dark":"available-matches"} >
-    <img loading='lazy' alt='' src={user.profileUrl} />
+    <img loading='lazy' alt='' src={user.profileUrl} /> 
     <div className='info' >
         <section className='info1' >
         <Link to='/'>{user.userName}</Link>

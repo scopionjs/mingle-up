@@ -103,7 +103,7 @@ color: white;
     max-width: 50px;
     max-height: 50px;
     min-width: 50px;
-    min-height: 50px;
+    min-height: 50px; 
     border-radius: 50%;
     color: var(--nuetral);
     cursor: pointer;
@@ -152,26 +152,39 @@ justify-content: center;
 margin: 0;
 padding: 0;
 }
+.mobile-top-nav .item1{
+    flex: 1;
+    padding: 0;
+    box-sizing: border-box;
+    max-height: 50px;
+}
 .mobile-top-nav .item2{
     flex: 2;
     padding: 0;
-    
+    box-sizing: border-box;
+    max-height: 50px;
 }
 .mobile-top-nav .item2 .search-wrapper{
     max-width: 90%;
     height: 80%;
 }
+.mobile-top-nav .item2 .search-wrapper button{
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .mobile-top-nav .item2 .search-wrapper button svg{
-   width: 130%;
-   height: 14px;
+   width: 50px;
+   height: 17px;
 }
 .mobile-top-nav .item2 .search-wrapper input{
-    font-size: 10px;
+    font-size: 12px;
 }
 .mobile-top-nav .item1  a{
     background-color: #F3EEEE;
     width: 98%;
-    height: 80%;
+    height: 70%;
     text-decoration: none;
     color: black;
     font-weight:800;
@@ -184,6 +197,10 @@ padding: 0;
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    gap: 3px;
+}
+.mobile-top-nav .item1  a svg{
+    color: #e21a1a;
 }
 .mobile-top-nav .item3{
     flex: 1;
@@ -192,6 +209,8 @@ padding: 0;
     align-items: center;
     justify-content: center;
     padding: 0;
+    box-sizing: border-box;
+    max-height: 50px;
 }
 .mobile-top-nav .item3  a{
 
@@ -208,8 +227,12 @@ padding: 0;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     margin: 0;
     display: flex;
+    gap: 3px;
     align-items: center;
     justify-content: center;
+}
+.mobile-top-nav .item3  a svg{
+    color: dodgerblue;
 }
 .mobile-top-nav .item4{
     max-width: 35px;

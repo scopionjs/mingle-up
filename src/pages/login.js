@@ -6,7 +6,7 @@ import js_cookies from 'js-cookie'
 import { userdetailscontext } from "../contexts/userdetails"
 import { login_user } from '../lib/loginuser'
 let SignIn =()=>{
-    let nav = useNavigate()
+    let nav = useNavigate() 
     let userdetails = useContext(userdetailscontext)
     // function to login a user when cookies are found  
     useEffect(()=>{

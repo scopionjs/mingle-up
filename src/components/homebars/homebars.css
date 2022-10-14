@@ -86,7 +86,8 @@ color: var(--nuetral);
     }
     /*for center bar */
     .love-board{
-        margin-inline: 2.5%;
+        margin-left: 2.5%;
+        margin-right: 2.5%;
         margin-top: 15px;
         height: 150px;
         background-color:white;
@@ -191,21 +192,24 @@ background-color: #303134;
 }
 .available-matches-wrapper{
     background-color: transparent;
-    margin-block: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
     gap: 12px;
 }
 .available-matches{
-    width: 80%;
-    margin-inline: 10%;
-    height: 450px;
+    width: 70%;
+    margin-left: 10%;
+    margin-right: 10%;
+    height: 95vh;
+    min-height: 450px;
     background-color: #ffffff;
     border-radius: 10px;
     box-shadow: -4px 4px 10px -5px rgba(0,0,0,0.69);
-        -webkit-box-shadow: -4px 4px 10px -5px rgba(0,0,0,0.69);
-        -moz-box-shadow: -4px 4px 10px -5px rgba(0,0,0,0.69);
+    -webkit-box-shadow: -4px 4px 10px -5px rgba(0,0,0,0.69);
+    -moz-box-shadow: -4px 4px 10px -5px rgba(0,0,0,0.69);
     position: relative;
 }
 .available-matches img{
@@ -309,7 +313,8 @@ color: red;
     width: 80%;
     height: 300px;
     background-color: white;
-    margin-inline: 10%;
+    margin-left: 10%;
+    margin-right: 10%;
     margin-top: 20px;
     border-radius: 20px;
     display: flex;
@@ -351,7 +356,8 @@ text-decoration: none;
 }
 .HomeRight .items-wrapper hr{
     max-width: 70%;
-    margin-inline: 15%;
+    margin-left: 15%;
+    margin-right: 15%;
 }
 .HomeRight .items-wrapper section{
 display: flex;
@@ -450,7 +456,8 @@ font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida San
 }
 .users-list-first-loader{
     width: 80%;
-    margin-inline: 10%;
+    margin-left: 10%;
+    margin-right: 10%;
     height: 200px;
     background-color: #ffffff;
     border-radius: 10px;
@@ -523,11 +530,13 @@ color: rgb(237, 29, 29);
 @media (max-width:650px){
     .available-matches {
         width: 96%;
-        margin-inline:2% ;
+        margin-left:2% ;
+        margin-right: 2%;
     }
     .users-list-first-loader{
         width: 96%;
-        margin-inline:2% ;
+        margin-left:2% ;
+        margin-right: 2%;
     }
     .available-matches .info .info1 p{
         font-size: 14px;

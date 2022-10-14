@@ -12,6 +12,14 @@ import { CircularProgress, LinearProgress } from "@mui/material"
 import { protect_routes } from "../lib/protect-routes"
 import { Cancel, Cloud, CloudUpload, InsertPhoto  } from "@mui/icons-material"
 import ReportProblemIcon from '@mui/icons-material/ReportProblem';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
+import ReviewsIcon from '@mui/icons-material/Reviews';
+import ElectricBoltIcon from '@mui/icons-material/ElectricBolt';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import DeleteIcon from '@mui/icons-material/Delete';
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 let Home =()=>{
   let nav=useNavigate()
   let [isLogedin,setIsLogedIn]=useState(null)
@@ -40,7 +48,7 @@ let openAddBoard =(e)=>{
           <div className={userdetails.isDarkMode?"add-to-board-item add-to-board-item-dark":"add-to-board-item"} >
             {/* LAYER 1 */ }
             
-            <div className="layer1 hide" >
+            <div className="layer1 " >
             <button className="cancel" ><Cancel /></button>
               <section className="box1" >
                 <p>this will help you to reach many people</p>
@@ -79,18 +87,59 @@ let openAddBoard =(e)=>{
               <p>failed try again</p>
             </div>
             {/*Layer 4 */}
-            <div className="layer4 " >
+            <div style={{display:"none"}} className="layer4" >
               <img className="love-board-picture" src="/demo1.png" />
               <div className="items-wrapper" >
                 <div className="item1" >
                   <section> <img src="/demo.jpg" /> <span></span> </section>
                   <Link to='/register' >joseph siame</Link>
                 </div>
-                <div className="item2" ></div>
-                <div className="item3" >
-                  <button>1</button>
-                  <button>2</button>
+                <div className="item2" >
+                  <button className='left-arrow' >
+                  <ArrowBackIosNewIcon />
+                  </button>
+                  <button className='right-arrow' >
+                  <ArrowForwardIosIcon />
+                  </button>
                 </div>
+                {1+1==3?(<div className="item3" >
+                  <button>
+                    <ThumbUpAltIcon />
+                    </button>
+                  <button>
+                    <FavoriteIcon />
+                    </button>
+                  <button>
+                    <ElectricBoltIcon />
+                    </button>
+                  <button><ReviewsIcon /></button>
+                </div>):(
+                <div className="item3-owner" >
+                  
+                  <button>
+                    <VisibilityIcon />
+                    <span>6k</span>
+                    </button>
+                  <button>
+                    <ThumbUpAltIcon />
+                    <span>2k</span>
+                    </button>
+                  <button>
+                    <FavoriteIcon />
+                    <span>1k</span>
+                    </button>
+                  <button>
+                    <ElectricBoltIcon />
+                    <span>2k</span>
+                    </button>
+                  <button>
+                    <ReviewsIcon />
+                    <span>500</span>
+                    </button>
+                  <button><DeleteIcon /></button>
+                </div>
+                )
+                }
               </div>
             </div>
             {/*Layer 5 */}

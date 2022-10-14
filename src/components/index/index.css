@@ -230,7 +230,8 @@ width: 40%;
 text-decoration: none;
 height: 50px;
 background: linear-gradient(90deg,rgb(183, 90, 90) 0% ,rgb(205,79,79)  50%,rgb(169, 107, 107) 100%);
-margin-inline:auto;
+margin-left:auto;
+margin-right: auto;
 color: white;
 display: flex;
 align-items: center;
@@ -288,7 +289,8 @@ z-index: 0;
 }
 .index-item3{
     width: 90%;
-    margin-inline: auto;
+    margin-left: auto;
+    margin-right: auto;
     background-color: white;
     height: 120px;
     max-height: auto;
@@ -349,7 +351,7 @@ font-size: 25px;
  .index-item3 .box3 section:last-child p  svg{
     color:rgb(224, 100, 100) ;
  }
- 
+  
 @media (max-width:650px){
     .index-item3{
         flex-direction: column;

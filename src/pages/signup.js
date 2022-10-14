@@ -149,9 +149,16 @@ login_user(js_cookies.get('passWord'),js_cookies.get('email'),nav,userdetails)
     let addHobby =(e)=>{
         if(e.target.value.length >3){
             if(e.code == "Space" || e.key=="Enter" || e.code=="NumpadEnter" || e.code=="Comma" || e.key ==','){
+                if(e.code=="NumpadEnter" || e.code=="Comma" || e.key ==','){
                 entered_hobbies.push(e.target.value)
                 set_hobbies(entered_hobbies.concat(...hobbies))
-            e.target.value=''
+                e.target.value=''
+                }else{
+                entered_hobbies.push(e.target.value)
+                set_hobbies(entered_hobbies.concat(...hobbies))
+                e.target.value=''
+                }
+                
                 
             }
         }
@@ -334,7 +341,7 @@ if(looking_for == null){
 <div ref={step2} className='step2  hide' >
     <h3>step 2</h3>
 <div className='register-looking-for' >
-    <label>what are you looking for</label>
+    <label>What are you looking for..?</label>
     <select  onChange={(e)=>{ set_looking_for(e.target.value) }} >
         <option value='a serious relationship' >a serious relationship</option>
         <option value='just friends'>just friends</option>
@@ -348,7 +355,7 @@ if(looking_for == null){
 <p style={{color:'red',fontSize:"10px",fontFamily:'sans-serif',marginTop:'4px',fontWeight:'700'}} >{looking_for_error}</p>
 <div className='register-interested-in' >
     <label>
-        who are you interested in
+        Who are you interested in..?
     </label>
     <select onChange={(e)=>{set_interested_in(e.target.value )}} >
         <option value='male' >men</option>
@@ -357,7 +364,7 @@ if(looking_for == null){
 </div>
 <p style={{color:'red',fontSize:"10px",fontFamily:'sans-serif',marginTop:'4px',fontWeight:'700'}} >{interested_in_error}</p>
 <div className='register-hobbies' >
-    <label>hobbies</label>
+    <label>Hobbies</label>
     <input onKeyUp={addHobby} />
 </div>
 <p style={{color:'red',fontSize:"10px",fontFamily:'sans-serif',marginTop:'4px',fontWeight:'700'}} >{hobbies_error}</p>
@@ -370,7 +377,7 @@ if(looking_for == null){
         }
     </div>
 <div className='dob' >
-    <label>date of birth</label>
+    <label>Date of birth</label>
     <section>
     <select name='month'  className='day-dob' >
         <option value='1' >1</option>
@@ -445,7 +452,7 @@ if(looking_for == null){
     <div ref={step3} className='step3 hide' >
         <h3>almost done !</h3>
         <div className='register-status' >
-            <label>status</label>
+            <label>Status..?</label>
             <select onChange={(e)=>{ set_status(e.target.value) }} >
                 <option value='single' >single</option>
                 <option value='married' >married</option>
@@ -453,7 +460,7 @@ if(looking_for == null){
             </select>
         </div>
         <div className='register-prefered-age' >
-            <label>prefered age ?</label>
+            <label>Prefered age..?</label>
 <section>
 <div><p>from</p></div>
             <select onChange={(e)=>{ set_min_age(+e.target.value) }}  >
@@ -572,18 +579,18 @@ if(looking_for == null){
 </section>
         </div>
         <div className='register-bio' >
-            <label>bio</label>
+            <label>Bio</label>
             <textarea maxLength={45} onChange={(e)=>{ set_bio(e.target.value) }} placeholder='optional' >
 
             </textarea>
         </div>
         <div className='register-expectations' >
-            <label>first date expectations?</label>
+            <label>First date expectations..?</label>
             <input onChange={(e)=>{set_first_date_expectations(e.target.value); set_first_date_expectations_error('')}} maxLength={45} placeholder='expectations' />
             <p style={{color:'red',fontSize:"10px",fontFamily:'sans-serif',marginTop:'4px',fontWeight:'700'}} >{first_date_expectations_error}</p>
         </div>
         <div className='register-profile'>
-            <p>upload profile</p>
+            <p>Upload profile</p>
             <div>
             <label for='register-pic' >
                 <AddPhotoAlternate />

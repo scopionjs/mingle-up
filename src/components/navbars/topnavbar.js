@@ -6,6 +6,8 @@ import { Home, Logout, Message, Notifications, NotListedLocation, Person, Search
 import { Link, useNavigate } from "react-router-dom"
 import { Notification } from "./notification"
 import cookies from 'js-cookie'
+import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 let TopNavBar =()=>{
     let navigate =useNavigate()
     let userdetails = useContext(userdetailscontext)
@@ -77,16 +79,19 @@ navigate('/messages')
           <nav className={userdetails.isDarkMode?"mobile-top-nav mobile-top-nav-dark":"mobile-top-nav"} >
 
             <div className="item1" >
-            <Link  to="/" >Loved me</Link>
+            <Link  to="/" ><FavoriteBorderIcon /> Loved me</Link>
             </div>
+
             <div className="item2" >
             <div className={userdetails.isDarkMode?"search-wrapper search-wrapper-dark":"search-wrapper"} >
               <input  placeholder="search for a person" ></input><button><Search/></button>
             </div>
             </div>
+
             <div className="item3" >
-            <Link  to="/" >Liked me</Link>
+            <Link  to="/" ><ThumbUpOffAltIcon /> Liked me</Link>
             </div>
+
             <div className="item4" onClick={toggleMenu} >
             <div>
               <div></div>
